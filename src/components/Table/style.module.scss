@@ -1,0 +1,42 @@
+.row_base {
+    display: grid;
+    grid-template-columns: 72px 72px auto auto 144px;
+    border-bottom: solid 1px rgb(230, 229, 229);
+    & > div {
+        padding-left: 24px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.line {
+    width: 1px;
+    height: 24px;
+    background-color: rgb(197, 197, 197);
+    margin: 0 14px;
+}
+
+.header {
+    @extend .row_base;
+    background-color: transparent;
+    height: 48px;
+}
+
+.row {
+    @extend .row_base;
+    height: 72px;
+    background-color: white;
+    & a {
+        color: #4299e1;
+    }
+
+    &:hover {
+        background-color: #EBF8FF;
+    }
+}
+
+.checkbox {
+    width: 22px;
+    height: 22px;
+    border-radius: 2px;
+}
