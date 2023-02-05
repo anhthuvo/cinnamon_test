@@ -23,11 +23,23 @@ export default function Table({ data, setData }: tableProps) {
             users: newData
         })
     }
+
+  const selectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newData = data.users.map(ele => ({
+      ...ele,
+      selected: e.target.checked
+    }))
+    setData({
+      selectNumber: e.target.checked ? newData.length : 0,
+      users: newData
+  })
+  }
+
   return (
     <div>
       <div className={styles.header}>
         <div>
-          <input type="checkbox" className={styles.checkbox} />
+          <input type="checkbox" className={styles.checkbox} onChange={selectAll}/>
         </div>
         <div>
           <p className={typo.title_m}>No.</p>
@@ -38,7 +50,7 @@ export default function Table({ data, setData }: tableProps) {
         <div>
           <p className={typo.title_m}>Blog</p>
         </div>
-        <div>
+        <div className="action_column">
           <p className={typo.title_m}>Actions</p>
         </div>
       </div>
@@ -59,7 +71,7 @@ export default function Table({ data, setData }: tableProps) {
               {user.repos_url}
             </a>
           </div>
-          <div>
+          <div className="action_column">
             <img src="/assets/icons/download.svg" className={"icon"} />
             <div className={styles.line}></div>
             <img src="/assets/icons/bin.svg" className={"icon"} />

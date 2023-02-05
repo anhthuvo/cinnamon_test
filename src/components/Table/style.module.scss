@@ -1,13 +1,22 @@
 .row_base {
     display: grid;
-    grid-template-columns: 72px 72px auto auto 144px;
+    grid-template-columns: 72px 72px 400px auto 144px;
     border-bottom: solid 1px rgb(230, 229, 229);
     & > div {
         padding-left: 24px;
         display: flex;
         align-items: center;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 }
+
+@media (max-width: 1024px) {
+    .row_base {
+        grid-template-columns: 40px 40px 60px auto 100px;
+    }
+}
+
 
 .line {
     width: 1px;
@@ -28,6 +37,7 @@
     background-color: white;
     & a {
         color: #4299e1;
+        text-overflow: ellipsis;
     }
 
     &:hover {
